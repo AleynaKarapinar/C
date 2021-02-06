@@ -1,11 +1,11 @@
-//İki Yönlü Asal Sayı Bulma
-//İki yönlü asal sayılar hem basamakları sırasıyla okunduğunda hem de basamakları tersten okunduğunda asal sayı olan sayılara denir.
+//Ä°ki YÃ¶nlÃ¼ Asal SayÄ± Bulma
+//Ä°ki yÃ¶nlÃ¼ asal sayÄ±lar hem basamaklarÄ± sÄ±rasÄ±yla okunduÄŸunda hem de basamaklarÄ± tersten okunduÄŸunda asal sayÄ± olan sayÄ±lara denir.
 
 #include<stdio.h>
 
-int i,sayi,sayac=0;
+int i,sayi,sayac=0,ters=0;
 
-int kontrol(int x){  // Sayının asal olup olmadığı kontrol eden fonksiyon
+int kontrol(int x){  // SayÄ±nÄ±n asal olup olmadÄ±ÄŸÄ± kontrol eden fonksiyon
  for(i=2;i<x;i++)
     {
        if(x%i==0)
@@ -17,20 +17,23 @@ int kontrol(int x){  // Sayının asal olup olmadığı kontrol eden fonksiyon
 main()
 {
     printf("Sayiyi Giriniz : ");
-    scanf("%d",&sayi); // Kullanıcıdan bir sayı girmesi istenir
+    scanf("%d",&sayi); // KullanÄ±cÄ±dan bir sayÄ± girmesi istenir
    
-   kontrol(sayi); // Fonksiyon çağırılarak asallık kontrolü yapılır
+   kontrol(sayi); // Fonksiyon Ã§aÄŸÄ±rÄ±larak asallÄ±k kontrolÃ¼ yapÄ±lÄ±r
     
-    if(sayac==0) // Sayı asalsa tersi alınır
+    if(sayac==0) // SayÄ± asalsa tersi alÄ±nÄ±r
     {
         printf("Girilen Sayi Asaldir \n");
 		    printf("Girilen Sayinin Tersi: ");
-            while( sayi>10 ) {
-            printf("%d",sayi % 10);
-            sayi /= 10;}
-             printf("%d\n",sayi); 
+            while (sayi != 0) {
+        ters *= 10;
+        ters += sayi % 10;
+        sayi /= 10;
+    }
+    printf("%d\n", ters);
+ 
 			  
-			      kontrol(sayi); //Tersi alınan sayının asal olup olmadığı kontrol edilir
+			      kontrol(ters); //Tersi alÄ±nan sayÄ±nÄ±n asal olup olmadÄ±ÄŸÄ± kontrol edilir
     
                               if(sayac==0) 
                                           {
@@ -38,7 +41,7 @@ main()
                                           }
                               else
                                          {
-                                 printf("Ikı Yonlu Asal Degildir"); 
+                                 printf("IkÄ± Yonlu Asal Degildir"); 
                                          }
     }             
     
